@@ -36,6 +36,19 @@ Edit **$TOMCATHOME/config/web.xml** and add this filter:
 
 ```
 
+**For Tomcat Basic Authorization:**
+
+Update **<cors.allowed.headers>** param by adding **Authorization** in **param-value** tag with :
+
+```
+<init-param>
+    <param-name>cors.allowed.headers</param-name>
+    <param-value>Content-Type,X-Requested-With,Authorization,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers</param-value>
+  </init-param>
+```
+
+
+
 Reference Document:
 
 [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
