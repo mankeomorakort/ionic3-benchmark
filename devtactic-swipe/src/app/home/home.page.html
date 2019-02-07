@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div swing-stack #myswing1 [stackConfig]="stackConfig" (throwoutleft)="voteUp(true)" (throwoutright)="voteUp(false)"
+  id="card-stack">
+  <div #mycards1 swing-card *ngFor="let c of cards">
+      <ion-item *ngIf="c.picture">
+          <ion-avatar item-left>
+            <img *ngIf="c.picture" [src]="c.picture.medium">
+          </ion-avatar>
+          <h2>{{ c.name.first }} {{ c.name.last}}</h2>
+          <p>{{ c.email }}</p>
+      </ion-item>
+      <ion-row *ngIf="c.location">
+          From: {{ c.location.city }}, {{ c.location.postcode }}<br>
+          Phone: {{ c.phone }}
+        </ion-row>
+    
+        <ion-row *ngIf="c.name">
+          <ion-col>
+            <button ion-button clear small icon-left color="primary" (click)="voteUp(true)">
+              <ion-icon name="thumbs-up"></ion-icon>
+              Yes
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button clear small icon-left color="primary" (click)="voteUp(false)">
+              <ion-icon name="thumbs-down"></ion-icon>
+              No
+            </button>
+          </ion-col>
+        </ion-row>
+  </div>
+</div>
+<p style="text-align: center; width: 100%;">{{ recentCard }}</p>
+</ion-content>
